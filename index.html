@@ -1,0 +1,100 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="SparkApp" ng-cloak>
+  <div ng-controller="MainCtrl" layout="column" style="height:100%;" ng-cloak>
+
+    <div layout="row" flex>
+
+    <md-sidenav class="md-sidenav-left" md-component-id="sideNavigation" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Side Menu</h1>
+      </md-toolbar>
+      <md-content layout-padding>
+        menu item 1<br>
+        menu item 2
+      </md-content>
+
+    </md-sidenav>
+
+    <div layout="column" flex>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <md-button class="md-icon-button" aria-label="Menu" ng-click="openSideMenu()" hide-gt-md>
+            <md-icon><i class="material-icons">menu</i></md-icon>
+          </md-button>
+          <h2>
+            <span>SPARK 2016</span>
+          </h2>
+          <span flex></span>
+        </div>
+      </md-toolbar>
+      <md-content flex layout-padding>
+
+        <div style="max-width: 960px; margin: 0 auto;">          
+          <md-card ng-repeat="project in projects">
+            <md-card-content>
+              <h2>Card headline</h2>
+              <p>Card content</p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button>Action 1</md-button>
+              <md-button>Action 2</md-button>
+            </md-card-actions>
+          </md-card>
+        </div>
+
+      </md-content>
+    </div>
+  </div>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">    
+    angular.module('SparkApp', ['ngMaterial'])
+    .controller('MainCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+      $scope.openSideMenu = function () {
+        $mdSidenav('sideNavigation').open();
+      }
+
+      $scope.projects = [
+        {
+          title: "Cool project 1",
+          students: "John Smith, Jenny Ng",
+          description: "This project is a battery that last 100x longer than the current state of the art solutions."
+        },
+        {
+          title: "Cool project 2",
+          students: "John Smith, Jenny Ng",
+          description: "This project is a battery that last 100x longer than the current state of the art solutions."
+        },
+        {
+          title: "Cool project 3",
+          students: "John Smith, Jenny Ng",
+          description: "This project is a battery that last 100x longer than the current state of the art solutions."
+        },
+        {
+          title: "Cool project 4",
+          students: "John Smith, Jenny Ng",
+          description: "This project is a battery that last 100x longer than the current state of the art solutions."
+        },
+      ]
+    })
+
+  </script>
+  
+</body>
+</html>
